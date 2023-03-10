@@ -1,0 +1,50 @@
+baseURL = "https://kueblc.github.io/"
+languageCode = "en-us"
+title = "qbitworks blog"
+theme = 'pulp'
+
+[markup.goldmark.renderer]
+	unsafe = true # Allow user HTML tags
+
+[params]
+	author = "Colin Kuebler"
+	avatar = "avatar.jpg"
+	avatarDescription = "QBitWorks Founder"
+	favicon = "favicon.ico"
+	description = """
+		QBitWorks Inc <br/>
+		Boutique Software and Hardware Engineering <br/>
+		From Web Applications to Embedded Hardware Reverse Engineering
+	"""
+	publicationYear = "2023"
+	# listPageDateFormat = "January, 2006" # See https://gohugo.io/functions/format/
+	# singlePageDateFormat = "January 2, 2006"
+	# custom_css = ["/css/custom.css"]
+	# custom_js = ["/js/custom.js"]
+
+# Make sure setting a following option for search bar to work
+[outputs]
+	section = ["JSON", "HTML"]
+	term = ["JSON", "HTML"]
+
+[[menu.main]]
+	identifier = "blog"
+	# name = "Blog" #If display text link, cancel comment out
+	pre = "<i class='fa fa-book-open fa-lg'></i>" #Choose your favorite font from Font Awesome
+	url = "/blog/"
+	weight = 10
+
+[[menu.main]]
+	identifier = "github"
+	# name = "GitHub"
+	pre = "<i class='fab fa-github fa-lg'></i>"
+	url = "https://github.com/kueblc"
+	weight = 30
+
+[[menu.main]]
+	identifier = "email"
+	# name = "Email"
+	pre = "<i class='fa fa-envelope fa-lg'></i>"
+	url = "mailto:kueblc+qbitworks@gmail.com"
+	weight = 40
+
