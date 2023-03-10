@@ -31,7 +31,7 @@ theme = 'pulp'
 	identifier = "blog"
 	# name = "Blog" #If display text link, cancel comment out
 	pre = "<i class='fa fa-book-open fa-lg'></i>" #Choose your favorite font from Font Awesome
-	url = "/blog/"
+	url = "/posts/"
 	weight = 10
 
 [[menu.main]]
