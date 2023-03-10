@@ -1,0 +1,33 @@
+baseURL = "https://kueblc.github.io/"
+languageCode = "en-us"
+title = "QBitWorks Inc"
+theme = 'air'
+
+paginate = 5
+DisqusShortname = ""
+Copyright = "All rights reserved - 2023"
+canonifyurls = true
+
+[author]
+	name = "kueblc"
+
+[permalinks]
+	post = "/post/:year/:month/:day/:slug"
+
+[params]
+	description = "Boutique Software and Hardware Engineering"
+	cover = "img/avatar.jpg"
+	author = "Colin Kuebler"
+	authorlocation = ""
+	authorwebsite = "https://kueblc.github.io"
+	bio = "From Web Applications to Embedded Hardware Reverse Engineering"
+	logo = "img/avatar.jpg"
+	googleAnalyticsUserID = ""
+	# Optional RSS-Link, if not provided it defaults to the standard index.xml
+	RSSLink = ""
+	githubName = "kueblc"
+	twitterName = ""
+	# set true if you are not proud of using Hugo (true will hide the footer note "Proudly published with HUGO.....")
+	hideHUGOSupport = true
+	mainSections = ["post"]
+
