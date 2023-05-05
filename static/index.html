@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset=utf-8>
+		<title>qbitworks</title>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			body {
+				margin: 0;
+				min-height: 100vh;
+				
+				background: #56a4dc; /*#88bce2;*/
+				color: #fff;
+				
+				font-family: ubuntu, sans-serif;
+				font-style: italic;
+			}
+			.center-contents {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: row;
+			}
+			h1 {
+				font-weight: normal;
+				font-size: 10vh;
+				text-shadow: 0 4px 8px rgba(0,0,0,.12);
+				white-space: nowrap;
+				/*padding-left: 5.75vh;*/
+				
+				position: absolute;
+				left: calc(50% - 5.75vh);
+				
+				animation-fill-mode: both;
+				animation-name: slide-left /*, fade-out*/;
+				animation-delay: 2s /*, 4s*/;
+				animation-duration: 1600ms /*, 1s*/;
+			}
+			
+			.qb {
+				display: inline-block;
+				/*margin-left: -5.75vh;*/
+				
+				animation-name: orbit-zoom /*zoom-in*/;
+				animation-fill-mode: both;
+				animation-delay: 0ms;
+				animation-duration: 2000ms;
+			}
+			
+			.l0, .l1, .l2, .l3, .l4, .l5, .l6 {
+				display: inline-block;
+				
+				animation-fill-mode: both;
+				animation-name: fade-in, bounce-in;
+				animation-duration: 1s, 500ms;
+			}
+			.l0 {
+				animation-delay: 2000ms;
+			}
+			.l1 {
+				animation-delay: 2100ms;
+			}
+			.l2 {
+				animation-delay: 2200ms;
+			}
+			.l3 {
+				animation-delay: 2300ms;
+			}
+			.l4 {
+				animation-delay: 2400ms;
+			}
+			.l5 {
+				animation-delay: 2500ms;
+			}
+			.l6 {
+				animation-delay: 2600ms;
+			}
+			@keyframes slide-left {
+				to {
+					transform: translateX(-50%);
+				}
+			}
+			@keyframes fade-in {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 1;
+				}
+			}
+			@keyframes fade-out {
+				from {
+					opacity: 1;
+				}
+				to {
+					opacity: 0;
+				}
+			}
+			@keyframes bounce-in {
+				from {
+					transform: translateY(12px);
+				}
+				80% {
+					transform: translateY(-6px);
+				}
+			}
+			@keyframes zoom-in {
+				from {
+					transform: scale(0);
+				}
+				to {
+					transform: scale(1);
+				}
+			}
+			@keyframes orbit-zoom {
+				from {
+					transform: rotate(0) scale(0);
+				}
+				to {
+					transform: rotate(6turn) scale(1);
+				}
+			}
+		</style>
+	</head>
+	<body class=center-contents>
+		<h1><b class=qb>qb</b><span class=l0>i</span><span class=l1>t</span><span class=l2>w</span><span class=l3>o</span><span class=l4>r</span><span class=l5>k</span><span class=l6>s</span></h1>
+	</body>
+</html>
+
