@@ -19,7 +19,7 @@
 			}
 			body {
 				margin: 0;
-				background: #56a4dc; /*#88bce2;*/
+				background: #56a4dc;
 				color: #fff;
 				
 				font-family: ubuntu, sans-serif;
@@ -37,55 +37,39 @@
 				font-size: 10vh;
 				text-shadow: 0 4px 8px rgba(0,0,0,.12);
 				white-space: nowrap;
-				/*padding-left: 5.75vh;*/
 				
 				position: absolute;
 				left: calc(50% - 1vh);
 				
 				animation-fill-mode: both;
-				animation-name: slide-left /*, fade-out*/;
-				animation-delay: 2s /*, 4s*/;
-				animation-duration: 1600ms /*, 1s*/;
+				animation-name: slide-left;
+				animation-delay: 1000ms;
+				animation-duration: 1600ms;
 			}
-			
-			.qb {
+			h1 > * {
 				display: inline-block;
-				/*margin-left: -5.75vh;*/
-				
-				animation-name: orbit-zoom /*zoom-in*/;
 				animation-fill-mode: both;
-				animation-delay: 0ms;
-				animation-duration: 2000ms;
 			}
-			
+			.q, .b {
+				animation-duration: 500ms, 800ms;
+			}
+			.q {
+				animation-name: fade-in, click-down;
+			}
+			.b {
+				animation-name: fade-in, click-up;
+			}
 			.l0, .l1, .l2, .l3, .l4, .l5, .l6 {
-				display: inline-block;
-				
-				animation-fill-mode: both;
 				animation-name: fade-in, bounce-in;
 				animation-duration: 1s, 500ms;
 			}
-			.l0 {
-				animation-delay: 2000ms;
-			}
-			.l1 {
-				animation-delay: 2100ms;
-			}
-			.l2 {
-				animation-delay: 2200ms;
-			}
-			.l3 {
-				animation-delay: 2300ms;
-			}
-			.l4 {
-				animation-delay: 2400ms;
-			}
-			.l5 {
-				animation-delay: 2500ms;
-			}
-			.l6 {
-				animation-delay: 2600ms;
-			}
+			.l0 { animation-delay: 1000ms }
+			.l1 { animation-delay: 1100ms }
+			.l2 { animation-delay: 1200ms }
+			.l3 { animation-delay: 1300ms }
+			.l4 { animation-delay: 1400ms }
+			.l5 { animation-delay: 1500ms }
+			.l6 { animation-delay: 1600ms }
 			@keyframes slide-left {
 				from {
 					transform: translateX(0);
@@ -118,6 +102,28 @@
 					transform: translateY(-6px);
 				}
 			}
+			@keyframes click-up {
+				from {
+					transform: translate(1px, -5px);
+				}
+				50% {
+					transform: translate(-4px, 20px);
+				}
+				75% {
+					transform: translate(0, -2px);
+				}
+			}
+			@keyframes click-down {
+				from {
+					transform: translate(-1px, 5px);
+				}
+				50% {
+					transform: translate(4px, -20px);
+				}
+				75% {
+					transform: translate(0, 2px);
+				}
+			}
 			@keyframes zoom-in {
 				from {
 					transform: scale(0);
@@ -126,18 +132,10 @@
 					transform: scale(1);
 				}
 			}
-			@keyframes orbit-zoom {
-				from {
-					transform: rotate(0) scale(0);
-				}
-				to {
-					transform: rotate(6turn) scale(1);
-				}
-			}
 		</style>
 	</head>
 	<body class=center-contents>
-		<h1><b class=qb>qb</b><span class=l0>i</span><span class=l1>t</span><span class=l2>w</span><span class=l3>o</span><span class=l4>r</span><span class=l5>k</span><span class=l6>s</span></h1>
+		<h1><b class=q>q</b><b class=b>b</b><span class=l0>i</span><span class=l1>t</span><span class=l2>w</span><span class=l3>o</span><span class=l4>r</span><span class=l5>k</span><span class=l6>s</span></h1>
 	</body>
 </html>
 
