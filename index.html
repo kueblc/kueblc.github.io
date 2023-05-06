@@ -24,29 +24,42 @@
 				
 				font-family: ubuntu, sans-serif;
 				font-style: italic;
+				overflow-x: hidden;
 			}
+			/*
 			.center-contents {
 				display: flex;
 				justify-content: center;
 				align-items: center;
 				flex-direction: row;
-				overflow-x: hidden;
 			}
-			h1 {
-				font-weight: normal;
+			*/
+			.qb-position {
+				font-weight: bold;
 				font-size: 10vh;
+				position: relative;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				display: inline-block;
+			}
+			.qb-scale {
+				visibility: hidden;
+			}
+			.logo {
+				font-weight: normal;
 				text-shadow: 0 4px 8px rgba(0,0,0,.12);
 				white-space: nowrap;
 				
 				position: absolute;
-				left: calc(50% - 1vh);
+				top: 0;
 				
 				animation-fill-mode: both;
 				animation-name: slide-left;
 				animation-delay: 1000ms;
 				animation-duration: 1600ms;
 			}
-			h1 > * {
+			.logo > * {
 				display: inline-block;
 				animation-fill-mode: both;
 			}
@@ -73,9 +86,11 @@
 			@keyframes slide-left {
 				from {
 					transform: translateX(0);
+					left: 0;
 				}
 				to {
 					transform: translateX(-50%);
+					left: 50%;
 				}
 			}
 			@keyframes fade-in {
@@ -135,7 +150,7 @@
 		</style>
 	</head>
 	<body class=center-contents>
-		<h1><b class=q>q</b><b class=b>b</b><span class=l0>i</span><span class=l1>t</span><span class=l2>w</span><span class=l3>o</span><span class=l4>r</span><span class=l5>k</span><span class=l6>s</span></h1>
+		<div class=qb-position><span class=qb-scale>qb</span><div class=logo><b class=q>q</b><b class=b>b</b><span class=l0>i</span><span class=l1>t</span><span class=l2>w</span><span class=l3>o</span><span class=l4>r</span><span class=l5>k</span><span class=l6>s</span></div></div>
 	</body>
 </html>
 
