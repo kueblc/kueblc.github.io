@@ -21,29 +21,33 @@
 				margin: 0;
 				background: #56a4dc;
 				color: #fff;
+				text-shadow: 0 4px 8px rgba(0,0,0,.12);
+				text-align: center;
+				font-family: -apple-system,BlinkMacSystemFont,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+				line-height: 1.5;
+				font-size: 16px;
 				
-				font-family: ubuntu, sans-serif;
-				font-style: italic;
 				overflow-x: hidden;
 			}
-			/*
+			::selection {
+				background-color: #80bbe5;
+				color: #888;
+			}
 			.center-contents {
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				flex-direction: row;
+				flex-direction: column;
 			}
-			*/
-			.qb-position {
+			header {
+				font-family: ubuntu, sans-serif;
+				font-style: italic;
 				font-weight: bold;
-				font-size: 10vh;
+				font-size: 80px;
 				position: relative;
-				left: 50%;
-				top: 50%;
-				transform: translate(-50%, -50%);
-				display: inline-block;
+				user-select: none;
 			}
-			.qb-scale {
+			.spacer {
 				visibility: hidden;
 			}
 			.logo {
@@ -61,28 +65,28 @@
 			}
 			.logo > * {
 				display: inline-block;
-				animation-fill-mode: both;
+				animation-fill-mode: backwards;
 			}
-			.q, .b {
+			.logo > b {
 				animation-duration: 500ms, 800ms;
 			}
-			.q {
+			.logo > b:nth-of-type(1) {
 				animation-name: fade-in, click-down;
 			}
-			.b {
+			.logo > b:nth-of-type(2) {
 				animation-name: fade-in, click-up;
 			}
-			.l0, .l1, .l2, .l3, .l4, .l5, .l6 {
+			.logo > span {
 				animation-name: fade-in, bounce-in;
 				animation-duration: 1s, 500ms;
 			}
-			.l0 { animation-delay: 1000ms }
-			.l1 { animation-delay: 1100ms }
-			.l2 { animation-delay: 1200ms }
-			.l3 { animation-delay: 1300ms }
-			.l4 { animation-delay: 1400ms }
-			.l5 { animation-delay: 1500ms }
-			.l6 { animation-delay: 1600ms }
+			.logo > span:nth-of-type(1) { animation-delay: 1000ms }
+			.logo > span:nth-of-type(2) { animation-delay: 1100ms }
+			.logo > span:nth-of-type(3) { animation-delay: 1200ms }
+			.logo > span:nth-of-type(4) { animation-delay: 1300ms }
+			.logo > span:nth-of-type(5) { animation-delay: 1400ms }
+			.logo > span:nth-of-type(6) { animation-delay: 1500ms }
+			.logo > span:nth-of-type(7) { animation-delay: 1600ms }
 			@keyframes slide-left {
 				from {
 					transform: translateX(0);
@@ -99,14 +103,6 @@
 				}
 				to {
 					opacity: 1;
-				}
-			}
-			@keyframes fade-out {
-				from {
-					opacity: 1;
-				}
-				to {
-					opacity: 0;
 				}
 			}
 			@keyframes bounce-in {
@@ -150,7 +146,10 @@
 		</style>
 	</head>
 	<body class=center-contents>
-		<div class=qb-position><span class=qb-scale>qb</span><div class=logo><b class=q>q</b><b class=b>b</b><span class=l0>i</span><span class=l1>t</span><span class=l2>w</span><span class=l3>o</span><span class=l4>r</span><span class=l5>k</span><span class=l6>s</span></div></div>
+		<header>
+			<span class=spacer>qb</span>
+			<div class=logo><b>q</b><b>b</b><span>i</span><span>t</span><span>w</span><span>o</span><span>r</span><span>k</span><span>s</span></div>
+		</header>
 	</body>
 </html>
 
