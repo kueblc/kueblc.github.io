@@ -10,6 +10,7 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 		<style>
 			* {
 				box-sizing: border-box;
@@ -87,6 +88,43 @@
 			.logo > span:nth-of-type(5) { animation-delay: 1400ms }
 			.logo > span:nth-of-type(6) { animation-delay: 1500ms }
 			.logo > span:nth-of-type(7) { animation-delay: 1600ms }
+			p {
+				margin-top: -1em;
+				animation-fill-mode: backwards;
+				animation-name: fade-in, slide-up;
+				animation-delay: 2000ms;
+				animation-duration: 600ms;
+			}
+			a {
+				color: #fff;
+				text-decoration: none;
+			}
+			nav ul {
+				display: flex;
+				padding: 0;
+				list-style: none;
+				user-select: none;
+			}
+			nav li {
+				padding: 0 10px;
+				animation-fill-mode: backwards;
+				animation-name: fade-in, slide-up;
+				animation-duration: 500ms;
+			}
+			nav li:nth-of-type(1) { animation-delay: 2000ms }
+			nav li:nth-of-type(2) { animation-delay: 2100ms }
+			nav li:nth-of-type(3) { animation-delay: 2200ms }
+			nav li:nth-of-type(4) { animation-delay: 2300ms }
+			nav li {
+				transition: transform 200ms, opacity 400ms;
+			}
+			nav:hover li {
+				opacity: 0.6;
+			}
+			nav li:hover {
+				opacity: 1;
+				transform: scale(1.1);
+			}
 			@keyframes slide-left {
 				from {
 					transform: translateX(0);
@@ -135,12 +173,9 @@
 					transform: translate(0, 2px);
 				}
 			}
-			@keyframes zoom-in {
+			@keyframes slide-up {
 				from {
-					transform: scale(0);
-				}
-				to {
-					transform: scale(1);
+					transform: translateY(12px);
 				}
 			}
 		</style>
@@ -150,6 +185,13 @@
 			<span class=spacer>qb</span>
 			<div class=logo><b>q</b><b>b</b><span>i</span><span>t</span><span>w</span><span>o</span><span>r</span><span>k</span><span>s</span></div>
 		</header>
+		<p>Boutique Software Engineering</p>
+		<nav><ul>
+			<li><a href="/about" aria-label="about"><i class="fas fa-user fa-lg"></i><br>About</a></li>
+			<li><a href="/blog" aria-label="blog"><i class="fa fa-book-open fa-lg"></i><br>Blog</a></li>
+			<li><a href="//github.com/kueblc" aria-label="github"><i class="fab fa-github fa-lg"></i><br>GitHub</a></li>
+			<li><a href="mailto:qbitworks.inc@gmail.com" aria-label="email"><i class="fa fa-envelope fa-lg"></i><br>Email</a></li>
+		</ul></nav>
 	</body>
 </html>
 
