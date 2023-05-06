@@ -99,29 +99,28 @@
 				color: #fff;
 				text-decoration: none;
 			}
-			nav ul {
+			nav {
 				display: flex;
 				padding: 0;
-				list-style: none;
 				user-select: none;
 			}
-			nav li {
+			nav a {
 				padding: 0 10px;
 				animation-fill-mode: backwards;
 				animation-name: fade-in, slide-up;
 				animation-duration: 500ms;
 			}
-			nav li:nth-of-type(1) { animation-delay: 2000ms }
-			nav li:nth-of-type(2) { animation-delay: 2100ms }
-			nav li:nth-of-type(3) { animation-delay: 2200ms }
-			nav li:nth-of-type(4) { animation-delay: 2300ms }
-			nav li {
+			nav a:nth-of-type(1) { animation-delay: 2000ms }
+			nav a:nth-of-type(2) { animation-delay: 2100ms }
+			nav a:nth-of-type(3) { animation-delay: 2200ms }
+			nav a:nth-of-type(4) { animation-delay: 2300ms }
+			nav a {
 				transition: transform 200ms, opacity 400ms;
 			}
-			nav:hover li {
+			nav:hover a {
 				opacity: 0.6;
 			}
-			nav li:hover {
+			nav a:hover {
 				opacity: 1;
 				transform: scale(1.1);
 			}
@@ -186,12 +185,12 @@
 			<div class=logo><b>q</b><b>b</b><span>i</span><span>t</span><span>w</span><span>o</span><span>r</span><span>k</span><span>s</span></div>
 		</header>
 		<p>Boutique Software Engineering</p>
-		<nav><ul>
-			<li><a href="/about" aria-label="about"><i class="fas fa-user fa-lg"></i><br>About</a></li>
-			<li><a href="/blog" aria-label="blog"><i class="fa fa-book-open fa-lg"></i><br>Blog</a></li>
-			<li><a href="//github.com/kueblc" aria-label="github"><i class="fab fa-github fa-lg"></i><br>GitHub</a></li>
-			<li><a href="mailto:qbitworks.inc@gmail.com" aria-label="email"><i class="fa fa-envelope fa-lg"></i><br>Email</a></li>
-		</ul></nav>
+		<nav>
+			<a href="/about" aria-label="about"><i class="fas fa-user fa-lg"></i><br>About</a>
+			<a href="/blog" aria-label="blog"><i class="fa fa-book-open fa-lg"></i><br>Blog</a>
+			<a href="//github.com/kueblc" aria-label="github"><i class="fab fa-github fa-lg"></i><br>GitHub</a>
+			<a href="mailto:qbitworks.inc@gmail.com" aria-label="email"><i class="fa fa-envelope fa-lg"></i><br>Email</a>
+		</nav>
 	</body>
 </html>
 
