@@ -24,6 +24,32 @@
 				font-display: block;
 				src: local('Ubuntu'), url(Ubuntu.woff2) format('woff2');
 				unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		</style>
+		<style>
+			:root {
+				--page-transition-delay: 0s;
+				--page-transition-duration: 400ms;
+			}
+			.page {
+				width: 100%;
+				overflow-x: hidden;
+				position: absolute;
+				top: 0;
+			}
+			.page, .page:target ~ #home {
+				opacity: 0;
+				transform: translateY(-20px);
+				pointer-events: none;
+				transition: opacity var(--page-transition-duration), transform var(--page-transition-duration), height var(--page-transition-duration) var(--page-transition-delay) step-end, min-height var(--page-transition-duration) var(--page-transition-delay) step-end;
+				height: 0;
+				min-height: 0;
+			}
+			.page:target, #home {
+				opacity: 1;
+				transform: none;
+				pointer-events: all;
+				transition: opacity var(--page-transition-duration) var(--page-transition-delay), transform var(--page-transition-duration) var(--page-transition-delay), height 0s step-start, min-height 0s step-start;
+				min-height: 100%;
 			}
 		</style>
 		<style>
@@ -42,8 +68,9 @@
 				font-family: -apple-system,BlinkMacSystemFont,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
 				line-height: 1.5;
 				font-size: 16px;
-				
-				overflow-x: hidden;
+			}
+			a {
+				color: #fff;
 			}
 			::selection {
 				background-color: #80bbe5;
@@ -55,22 +82,19 @@
 				align-items: center;
 				flex-direction: column;
 			}
-			header {
+			.logo {
 				font-family: ubuntu, sans-serif;
 				font-style: italic;
-				font-weight: bold;
 				font-size: 80px;
 				position: relative;
 				user-select: none;
+				white-space: nowrap;
+				text-decoration: none;
 			}
 			.spacer {
 				visibility: hidden;
 			}
-			.logo {
-				font-weight: normal;
-				text-shadow: 0 4px 8px rgba(0,0,0,.12);
-				white-space: nowrap;
-				
+			.logo-anim {
 				position: absolute;
 				top: 0;
 				
@@ -79,30 +103,30 @@
 				animation-delay: 1000ms;
 				animation-duration: 1600ms;
 			}
-			.logo > * {
+			.logo-anim > * {
 				display: inline-block;
 				animation-fill-mode: backwards;
 			}
-			.logo > b {
+			.logo-anim > b {
 				animation-duration: 500ms, 800ms;
 			}
-			.logo > b:nth-of-type(1) {
+			.logo-anim > b:nth-of-type(1) {
 				animation-name: fade-in, click-down;
 			}
-			.logo > b:nth-of-type(2) {
+			.logo-anim > b:nth-of-type(2) {
 				animation-name: fade-in, click-up;
 			}
-			.logo > span {
+			.logo-anim > span {
 				animation-name: fade-in, bounce-in;
 				animation-duration: 1s, 500ms;
 			}
-			.logo > span:nth-of-type(1) { animation-delay: 1000ms }
-			.logo > span:nth-of-type(2) { animation-delay: 1100ms }
-			.logo > span:nth-of-type(3) { animation-delay: 1200ms }
-			.logo > span:nth-of-type(4) { animation-delay: 1300ms }
-			.logo > span:nth-of-type(5) { animation-delay: 1400ms }
-			.logo > span:nth-of-type(6) { animation-delay: 1500ms }
-			.logo > span:nth-of-type(7) { animation-delay: 1600ms }
+			.logo-anim > span:nth-of-type(1) { animation-delay: 1000ms }
+			.logo-anim > span:nth-of-type(2) { animation-delay: 1100ms }
+			.logo-anim > span:nth-of-type(3) { animation-delay: 1200ms }
+			.logo-anim > span:nth-of-type(4) { animation-delay: 1300ms }
+			.logo-anim > span:nth-of-type(5) { animation-delay: 1400ms }
+			.logo-anim > span:nth-of-type(6) { animation-delay: 1500ms }
+			.logo-anim > span:nth-of-type(7) { animation-delay: 1600ms }
 			.tagline {
 				margin-top: -1em;
 				animation-fill-mode: backwards;
@@ -113,15 +137,14 @@
 			}
 			nav {
 				display: flex;
-				padding: 0;
 				user-select: none;
 			}
 			nav a {
-				color: #fff;
 				text-decoration: none;
 				padding: 10px;
+				flex-grow: 1;
 			}
-			nav a {
+			#home nav a {
 				animation-fill-mode: backwards;
 				animation-name: fade-in, slide-up;
 				animation-duration: 500ms;
@@ -141,8 +164,8 @@
 			}
 			nav a div {
 				text-transform: uppercase;
-				font-size: 12px;
-				padding-top: 4px;
+				font-size: 0.75em;
+				padding-top: 0.25em;
 			}
 			nav:hover a {
 				opacity: 0.6;
@@ -158,6 +181,47 @@
 			nav a:active {
 				opacity: 1;
 				transform: scale(1);
+			}
+			header {
+				display: flex;
+				justify-content: space-between;
+				align-items: end;
+				/*border-bottom: 4px solid #fff;*/
+			}
+			header .logo {
+				font-size: 44px;
+				padding: 0 10px;
+			}
+			hr {
+				margin: 0 10px;
+				height: 4px;
+				background: #fff;
+				border: 0;
+				box-shadow: 0 4px 8px rgba(0,0,0,.12);
+			}
+			main {
+				width: 80%;
+				margin: 12px auto;
+			}
+			article {
+				margin: 0 10px;
+				text-align: left;
+			}
+			@media only screen and (max-width: 800px) {
+				main {
+					width: 100%;
+				}
+			}
+			@media only screen and (max-width: 640px) {
+				header nav {
+					position: fixed;
+					bottom: 0;
+					width: 100%;
+					backdrop-filter: blur(0.5em);
+				}
+				main {
+					margin-bottom: 5em;
+				}
 			}
 			@keyframes slide-left {
 				from {
@@ -214,25 +278,44 @@
 			}
 		</style>
 	</head>
-	<body class=center-contents>
-		<header>
-			<span class=spacer>qb</span>
-			<div class=logo><b>q</b><b>b</b><span>i</span><span>t</span><span>w</span><span>o</span><span>r</span><span>k</span><span>s</span></div>
-		</header>
+	<body>
+		<div class="page" id=about>
+		<main>
+			<header>
+				<a href="#" class=logo><b>qb</b><span>itworks</span></a>
+				<nav>
+					<a href="#about" aria-label="about"><i class="fas fa-user fa-lg"></i><div>About</div></a>
+					<a href="https://github.com/kueblc" aria-label="github"><i class="fab fa-github fa-lg"></i><div>GitHub</div></a>
+					<a href="https://patreon.com/kueblc" aria-label="patreon"><i class="fab fa-patreon fa-lg"></i><div>Patreon</div></a>
+					<a href="https://buymeacoffee.com/kueblc" aria-label="buymeacoffee"><i class="fas fa-coffee fa-lg"></i><div>BMC</div></a>
+					<a href="mailto:qbitworks.inc@gmail.com" aria-label="email"><i class="fa fa-envelope fa-lg"></i><div>Email</div></a>
+				</nav>
+			</header>
+			<hr>
+			<article>
+				<h2>About</h2>
+				<p>Hi, I'm Colin, and I'm a bitworker from upstate New York.</p>
+				<p>I'm passionate about code and technology. I started Q BitWorks Inc to offer software consulting and engineering. With 20 years experience and growing, I have worked with dozens of programming languages, hundreds of frameworks, and companies large and small. I can advise you on the best tools for the job and bring your ideas from conception to deployment and beyond.</p>
+				<p>I have extensive experience writing web applications, reverse engineering both software and hardware, designing user interfaces and experiences, and much more. I can usually pick up a new language or framework in about two weeks and I am especially excited to take on a challenge.</p>
+				<p>When I'm not writing code, you can find me creating art, developing new recipes, hiking, and playing video games.</p>
+				<p>Got a challenge for me? <a href="mailto:qbitworks.inc@gmail.com">Let's talk!</a></p>
+			</article>
+		</main>
+		</div>
+		<div class="page center-contents" id=home>
+		<div class=logo>
+			<b class=spacer>qb</b>
+			<div class=logo-anim><b>q</b><b>b</b><span>i</span><span>t</span><span>w</span><span>o</span><span>r</span><span>k</span><span>s</span></div>
+		</div>
 		<p class=tagline>Boutique Software Engineering</p>
 		<nav>
 			<a href="#about" aria-label="about"><i class="fas fa-user fa-lg"></i><div>About</div></a>
-			<!--<a href="/blog" aria-label="blog"><i class="fa fa-book-open fa-lg"></i><div>Blog</div></a>
-			<a href="/works" aria-label="works"><i class="fas fa-drafting-compass fa-lg"></i><div>Works</div></a>
-			<a href="/works" aria-label="works"><i class="fas fa-tools fa-lg"></i><div>Works</div></a>
-			<a href="#about" aria-label="test"><i class="fas fa-cog fa-lg"></i><div>Test</div></a>
-			<a href="#" aria-label="mastodon"><i class="fab fa-mastodon fa-lg"></i><div>Mastodon</div></a>-->
-			<a href="/works" aria-label="works"><i class="fas fa-pencil-ruler fa-lg"></i><div>Works</div></a>
-			<a href="//github.com/kueblc" aria-label="github"><i class="fab fa-github fa-lg"></i><div>GitHub</div></a>
-			<a href="//patreon.com/kueblc" aria-label="patreon"><i class="fab fa-patreon fa-lg"></i><div>Patreon</div></a>
-			<a href="//buymeacoffee.com/kueblc" aria-label="buymeacoffee"><i class="fas fa-coffee fa-lg"></i><div>BMAC</div></a>
+			<a href="https://github.com/kueblc" aria-label="github"><i class="fab fa-github fa-lg"></i><div>GitHub</div></a>
+			<a href="https://patreon.com/kueblc" aria-label="patreon"><i class="fab fa-patreon fa-lg"></i><div>Patreon</div></a>
+			<a href="https://buymeacoffee.com/kueblc" aria-label="buymeacoffee"><i class="fas fa-coffee fa-lg"></i><div>BMC</div></a>
 			<a href="mailto:qbitworks.inc@gmail.com" aria-label="email"><i class="fa fa-envelope fa-lg"></i><div>Email</div></a>
 		</nav>
+		</div>
 	</body>
 </html>
 
