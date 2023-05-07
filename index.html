@@ -98,6 +98,7 @@
 			a {
 				color: #fff;
 				text-decoration: none;
+				text-transform: lowercase;
 			}
 			nav {
 				display: flex;
@@ -116,6 +117,11 @@
 			nav a:nth-of-type(4) { animation-delay: 2300ms }
 			nav a {
 				transition: transform 200ms, opacity 400ms;
+			}
+			nav a div {
+				text-transform: uppercase;
+				font-size: 12px;
+				padding-top: 4px;
 			}
 			nav:hover a {
 				opacity: 0.6;
@@ -186,10 +192,17 @@
 		</header>
 		<p class=tagline>Boutique Software Engineering</p>
 		<nav>
-			<a href="/about" aria-label="about"><i class="fas fa-user fa-lg"></i><br>About</a>
-			<a href="/blog" aria-label="blog"><i class="fa fa-book-open fa-lg"></i><br>Blog</a>
-			<a href="//github.com/kueblc" aria-label="github"><i class="fab fa-github fa-lg"></i><br>GitHub</a>
-			<a href="mailto:qbitworks.inc@gmail.com" aria-label="email"><i class="fa fa-envelope fa-lg"></i><br>Email</a>
+			<a href="#about" aria-label="about"><i class="fas fa-user fa-lg"></i><div>About</div></a>
+			<!--<a href="/blog" aria-label="blog"><i class="fa fa-book-open fa-lg"></i><div>Blog</div></a>
+			<a href="/works" aria-label="works"><i class="fas fa-drafting-compass fa-lg"></i><div>Works</div></a>
+			<a href="/works" aria-label="works"><i class="fas fa-tools fa-lg"></i><div>Works</div></a>
+			<a href="#about" aria-label="test"><i class="fas fa-cog fa-lg"></i><div>Test</div></a>
+			<a href="#" aria-label="mastodon"><i class="fab fa-mastodon fa-lg"></i><div>Mastodon</div></a>-->
+			<a href="/works" aria-label="works"><i class="fas fa-pencil-ruler fa-lg"></i><div>Works</div></a>
+			<a href="//github.com/kueblc" aria-label="github"><i class="fab fa-github fa-lg"></i><div>GitHub</div></a>
+			<a href="//patreon.com/kueblc" aria-label="patreon"><i class="fab fa-patreon fa-lg"></i><div>Patreon</div></a>
+			<a href="//buymeacoffee.com/kueblc" aria-label="buymeacoffee"><i class="fas fa-coffee fa-lg"></i><div>BMAC</div></a>
+			<a href="mailto:qbitworks.inc@gmail.com" aria-label="email"><i class="fa fa-envelope fa-lg"></i><div>Email</div></a>
 		</nav>
 	</body>
 </html>
