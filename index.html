@@ -55,6 +55,9 @@
 				line-height: 1.5;
 				font-size: 16px;
 			}
+			a {
+				color: #fff;
+			}
 			::selection {
 				background-color: #80bbe5;
 				color: #888;
@@ -65,22 +68,19 @@
 				align-items: center;
 				flex-direction: column;
 			}
-			header {
+			.logo {
 				font-family: ubuntu, sans-serif;
 				font-style: italic;
-				font-weight: bold;
 				font-size: 80px;
 				position: relative;
 				user-select: none;
+				white-space: nowrap;
+				text-decoration: none;
 			}
 			.spacer {
 				visibility: hidden;
 			}
-			.logo {
-				font-weight: normal;
-				text-shadow: 0 4px 8px rgba(0,0,0,.12);
-				white-space: nowrap;
-				
+			.logo-anim {
 				position: absolute;
 				top: 0;
 				
@@ -89,30 +89,30 @@
 				animation-delay: 1000ms;
 				animation-duration: 1600ms;
 			}
-			.logo > * {
+			.logo-anim > * {
 				display: inline-block;
 				animation-fill-mode: backwards;
 			}
-			.logo > b {
+			.logo-anim > b {
 				animation-duration: 500ms, 800ms;
 			}
-			.logo > b:nth-of-type(1) {
+			.logo-anim > b:nth-of-type(1) {
 				animation-name: fade-in, click-down;
 			}
-			.logo > b:nth-of-type(2) {
+			.logo-anim > b:nth-of-type(2) {
 				animation-name: fade-in, click-up;
 			}
-			.logo > span {
+			.logo-anim > span {
 				animation-name: fade-in, bounce-in;
 				animation-duration: 1s, 500ms;
 			}
-			.logo > span:nth-of-type(1) { animation-delay: 1000ms }
-			.logo > span:nth-of-type(2) { animation-delay: 1100ms }
-			.logo > span:nth-of-type(3) { animation-delay: 1200ms }
-			.logo > span:nth-of-type(4) { animation-delay: 1300ms }
-			.logo > span:nth-of-type(5) { animation-delay: 1400ms }
-			.logo > span:nth-of-type(6) { animation-delay: 1500ms }
-			.logo > span:nth-of-type(7) { animation-delay: 1600ms }
+			.logo-anim > span:nth-of-type(1) { animation-delay: 1000ms }
+			.logo-anim > span:nth-of-type(2) { animation-delay: 1100ms }
+			.logo-anim > span:nth-of-type(3) { animation-delay: 1200ms }
+			.logo-anim > span:nth-of-type(4) { animation-delay: 1300ms }
+			.logo-anim > span:nth-of-type(5) { animation-delay: 1400ms }
+			.logo-anim > span:nth-of-type(6) { animation-delay: 1500ms }
+			.logo-anim > span:nth-of-type(7) { animation-delay: 1600ms }
 			.tagline {
 				margin-top: -1em;
 				animation-fill-mode: backwards;
@@ -123,15 +123,14 @@
 			}
 			nav {
 				display: flex;
-				padding: 0;
 				user-select: none;
 			}
 			nav a {
-				color: #fff;
 				text-decoration: none;
 				padding: 10px;
+				flex-grow: 1;
 			}
-			nav a {
+			#home nav a {
 				animation-fill-mode: backwards;
 				animation-name: fade-in, slide-up;
 				animation-duration: 500ms;
@@ -151,8 +150,8 @@
 			}
 			nav a div {
 				text-transform: uppercase;
-				font-size: 12px;
-				padding-top: 4px;
+				font-size: 0.75em;
+				padding-top: 0.25em;
 			}
 			nav:hover a {
 				opacity: 0.6;
@@ -230,10 +229,10 @@
 			<a href="#">back</a>
 		</div>
 		<div class="page center-contents" id=home>
-		<header>
-			<span class=spacer>qb</span>
-			<div class=logo><b>q</b><b>b</b><span>i</span><span>t</span><span>w</span><span>o</span><span>r</span><span>k</span><span>s</span></div>
-		</header>
+		<div class=logo>
+			<b class=spacer>qb</b>
+			<div class=logo-anim><b>q</b><b>b</b><span>i</span><span>t</span><span>w</span><span>o</span><span>r</span><span>k</span><span>s</span></div>
+		</div>
 		<p class=tagline>Boutique Software Engineering</p>
 		<nav>
 			<a href="#about" aria-label="about"><i class="fas fa-user fa-lg"></i><div>About</div></a>
