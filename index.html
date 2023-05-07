@@ -13,9 +13,32 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 		<style>
 			:root {
-				--page-transition-delay: 0s /*500ms*/;
+				--page-transition-delay: 0s;
 				--page-transition-duration: 400ms;
 			}
+			.page {
+				width: 100%;
+				overflow-x: hidden;
+				position: absolute;
+				top: 0;
+			}
+			.page, .page:target ~ #home {
+				opacity: 0;
+				transform: translateY(-20px);
+				pointer-events: none;
+				transition: opacity var(--page-transition-duration), transform var(--page-transition-duration), height var(--page-transition-duration) var(--page-transition-delay) step-end, min-height var(--page-transition-duration) var(--page-transition-delay) step-end;
+				height: 0;
+				min-height: 0;
+			}
+			.page:target, #home {
+				opacity: 1;
+				transform: translateY(0px);
+				pointer-events: all;
+				transition: opacity var(--page-transition-duration) var(--page-transition-delay), transform var(--page-transition-duration) var(--page-transition-delay), height 0s step-start, min-height 0s step-start;
+				min-height: 100%;
+			}
+		</style>
+		<style>
 			* {
 				box-sizing: border-box;
 			}
@@ -31,35 +54,6 @@
 				font-family: -apple-system,BlinkMacSystemFont,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
 				line-height: 1.5;
 				font-size: 16px;
-			}
-			.page {
-				width: 100%;
-				overflow-x: hidden;
-				position: absolute;
-				top: 0;
-			}
-			.page {
-				opacity: 0;
-				transform: translateY(-20px);
-				pointer-events: none;
-				transition: opacity var(--page-transition-duration), transform var(--page-transition-duration), height var(--page-transition-duration) var(--page-transition-delay) step-end, min-height var(--page-transition-duration) var(--page-transition-delay) step-end;
-				height: 0;
-				min-height: 0;
-			}
-			.page:target, #home {
-				opacity: 1;
-				transform: translateY(0px);
-				pointer-events: all;
-				transition: opacity var(--page-transition-duration) var(--page-transition-delay), transform var(--page-transition-duration) var(--page-transition-delay), height 0s step-start, min-height 0s step-start;
-				min-height: 100%;
-			}
-			.page:target ~ #home {
-				opacity: 0;
-				transform: translateY(-20px);
-				pointer-events: none;
-				transition: opacity var(--page-transition-duration), transform var(--page-transition-duration), height var(--page-transition-duration) var(--page-transition-delay) step-end, min-height var(--page-transition-duration) var(--page-transition-delay) step-end;
-				height: 0;
-				min-height: 0;
 			}
 			::selection {
 				background-color: #80bbe5;
