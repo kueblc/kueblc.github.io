@@ -206,6 +206,10 @@
 				border: 0;
 				box-shadow: var(--shadow);
 			}
+			h2 {
+				text-align: center;
+				text-transform: uppercase;
+			}
 			main {
 				width: 80%;
 				margin: 12px auto;
@@ -220,6 +224,9 @@
 				}
 			}
 			@media only screen and (max-width: 640px) {
+				header .logo {
+					flex-grow: 1;
+				}
 				header nav {
 					position: fixed;
 					bottom: 0;
