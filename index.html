@@ -53,6 +53,9 @@
 			}
 		</style>
 		<style>
+			:root {
+				--shadow: 0 3px 6px rgba(0,0,0,.3);
+			}
 			* {
 				box-sizing: border-box;
 			}
@@ -64,7 +67,7 @@
 				background: #56a4dc;
 				background: linear-gradient(#257BBB,#459AD9);
 				color: #fff;
-				text-shadow: 0 4px 8px rgba(0,0,0,.12);
+				text-shadow: var(--shadow);
 				text-align: center;
 				font-family: -apple-system,BlinkMacSystemFont,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
 				line-height: 1.5;
@@ -185,7 +188,7 @@
 			}
 			svg.icon {
 				fill: #fff;
-				filter: drop-shadow(0px 4px 8px rgba(0,0,0,0.2));
+				filter: drop-shadow(var(--shadow));
 				height: 1.33333em;
 				vertical-align: -.0667em;
 			}
@@ -204,7 +207,7 @@
 				height: 4px;
 				background: #fff;
 				border: 0;
-				box-shadow: 0 4px 8px rgba(0,0,0,.12);
+				box-shadow: var(--shadow);
 			}
 			main {
 				width: 80%;
